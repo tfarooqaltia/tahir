@@ -57,12 +57,6 @@ spec:
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
           
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: "/catalog-info.yaml"
 
   output:
     remoteUrl: ${{ steps.publish.output.remoteUrl }}
