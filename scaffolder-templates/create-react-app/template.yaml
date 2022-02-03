@@ -7,6 +7,7 @@ metadata:
   tags:
     - react
     - cra
+# these are the steps which are rendered in the frontend with the form input
 spec:
   owner: web@example.com
   type: website
@@ -43,6 +44,7 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+# here's the steps that are executed in series in the scaffolder backend
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -56,8 +58,14 @@ spec:
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
-          
+   
+    - id: fetch-docs
+      name: Fetch Docs
+      action: fetch:plain
+      input:
+        targetPath: ./community
+        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
 
   output:
-    remoteUrl: ${{ steps.publish.output.remoteUrl }}
-    entityRef: ${{ steps.register.output.entityRef }}
+    remoteUrl: ${{ steps.template.output.remoteUrl }}
+    entityRef: ${{ steps.fetch-docs.output.entityRef }}
