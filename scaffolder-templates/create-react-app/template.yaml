@@ -16,6 +16,8 @@ spec:
       required:
         - contents
         - filename
+        - component_id
+        - owner
       properties:
         contents:
           title: Contents
@@ -25,6 +27,31 @@ spec:
           title: Filename
           type: string
           description: The filename of the file that will be created
+        component_id:
+          title: Name
+          type: string
+          description: Unique name of the component
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+
 # here's the steps that are executed in series in the scaffolder backend
   steps:
     - id: create-file-1
@@ -34,6 +61,16 @@ spec:
         contents: ${{parameters.contents}}
         filename: ${{parameters.filename}}
 
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: "/catalog-info.yaml"
+
+  output:
+    remoteUrl: ${{ steps.publish.output.remoteUrl }}
+    entityRef: ${{ steps.register.output.entityRef }}
     # - id: template
     #   name: Fetch Skeleton + Template
     #   action: fetch:template
@@ -48,7 +85,7 @@ spec:
     #       owner: ${{ parameters.owner }}
 
     # - id: plain
-    #   name: Download content
+    #   name: Pull content
     #   action: fetch:plain
     #   input:
     #     targetPath: ./dwnload
