@@ -51,7 +51,6 @@ spec:
             allowedHosts:
               - github.com
 
-
 # here's the steps that are executed in series in the scaffolder backend
   steps:
     - id: create-file-1
@@ -60,6 +59,14 @@ spec:
       input:
         contents: ${{parameters.contents}}
         filename: ${{parameters.filename}}
+
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ["github.com"]
+        description: "This is {{ parameters.component_id }}"
+        repoUrl: "{{ parameters.repoUrl }}"
 
     - id: register
       name: Register
