@@ -75,12 +75,6 @@ spec:
         contents: ${{parameters.contents}}
         filename: ${{parameters.filename}}
 
-    - id: download-file
-      name: Downloading file
-      action: altia:download-file
-      input:
-        path: ${{parameters.path}}
-
     - id: template
       name: Fetch Skeleton + Template
       action: fetch:template
@@ -93,6 +87,12 @@ spec:
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
+
+    - id: download-file
+      name: Downloading file
+      action: altia:download-file
+      input:
+        path: ${{parameters.path}}
 
     - id: publish
       name: Publish
