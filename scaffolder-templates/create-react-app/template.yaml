@@ -53,12 +53,26 @@ spec:
 
 # here's the steps that are executed in series in the scaffolder backend
   steps:
+
     - id: create-file-1
       name: Creating file
       action: altia:create-file-1
       input:
         contents: ${{parameters.contents}}
         filename: ${{parameters.filename}}
+
+    - id: template
+      name: Fetch Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        copyWithoutRender:
+          - .github/workflows/*
+        values:
+          component_id: ${{ parameters.component_id }}
+          description: ${{ parameters.description }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          owner: ${{ parameters.owner }}
 
     - id: publish
       name: Publish
