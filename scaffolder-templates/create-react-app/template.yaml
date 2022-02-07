@@ -16,33 +16,15 @@ spec:
       required:
         - contents
         - filename
-        - component_id
-        - owner
       properties:
         contents:
           title: Contents
           type: string
-          description: Contents you want to add.
+          description: The contents of the file
         filename:
           title: Filename
           type: string
-          description: Add name of the file.
-        component_id:
-          title: Name
-          type: string
-          description: Unique name of the component
-        description:
-          title: Description
-          type: string
-          description: Help others understand what this website is for.
-        owner:
-          title: Owner
-          type: string
-          description: Owner of the component
-          ui:field: OwnerPicker
-          ui:options:
-            allowedKinds:
-              - Group
+          description: The filename of the file that will be created
     - title: Choose a location
       required:
         - repoUrl
@@ -60,7 +42,6 @@ spec:
       name: Creating file
       action: altia:create-file-1
       input:
-        url: ./skeleton
         values:
           contents: ${{parameters.contents}}
           filename: ${{parameters.filename}}
