@@ -14,15 +14,19 @@ spec:
   parameters:
     - title: Provide some simple information
       required:
-        - component_id
-        - owner
         - contents
         - filename
+        - component_id
+        - owner
       properties:
         contents:
-          contents: Contents
+          title: Contents
+          type: string
+          description: Contents you want to add.
         filename:
-          filename: Filename
+          title: Filename
+          type: string
+          description: Add name of the file.
         component_id:
           title: Name
           type: string
