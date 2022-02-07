@@ -85,8 +85,8 @@ spec:
       action: publish:github
       input:
         allowedHosts: ["github.com"]
-        description: "This is {{ parameters.component_id }}"
-        repoUrl: "{{ parameters.repoUrl }}"
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
       name: Register
