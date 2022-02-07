@@ -16,7 +16,13 @@ spec:
       required:
         - component_id
         - owner
+        - contents
+        - filename
       properties:
+        contents:
+          contents: Contents
+        filename:
+          filename: Filename
         component_id:
           title: Name
           type: string
@@ -46,9 +52,9 @@ spec:
               - github.com
 # here's the steps that are executed in series in the scaffolder backend
   steps:
-    - id: template
-      name: Fetch Skeleton + Template
-      action: fetch:template
+    - id: create-file-1
+      name: Creating file
+      action: altia:create-file-1
       input:
         url: ./skeleton
         copyWithoutRender:
@@ -58,10 +64,25 @@ spec:
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           owner: ${{ parameters.owner }}
+          contents: ${{parameters.contents}}
+          filename: ${{parameters.filename}}
 
-    - id: plain
-      name: Download content
-      action: fetch:plain
-      input:
-        targetPath: ./dwnload
-        url: https://github.com/tfarooqaltia/tahir/blob/main/scaffolder-templates/create-react-app/template.yaml
+    # - id: template
+    #   name: Fetch Skeleton + Template
+    #   action: fetch:template
+    #   input:
+    #     url: ./skeleton
+    #     copyWithoutRender:
+    #       - .github/workflows/*
+    #     values:
+    #       component_id: ${{ parameters.component_id }}
+    #       description: ${{ parameters.description }}
+    #       destination: ${{ parameters.repoUrl | parseRepoUrl }}
+    #       owner: ${{ parameters.owner }}
+
+    # - id: plain
+    #   name: Download content
+    #   action: fetch:plain
+    #   input:
+    #     targetPath: ./dwnload
+    #     url: https://github.com/tfarooqaltia/tahir/blob/main/scaffolder-templates/create-react-app/template.yaml
