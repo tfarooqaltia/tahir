@@ -57,6 +57,14 @@ spec:
             allowedHosts:
               - github.com
 
+    - title: Choose a path
+      required:
+        - path
+      properties:
+        path:
+          title: Path Location
+          type: string
+
 # here's the steps that are executed in series in the scaffolder backend
   steps:
 
@@ -66,6 +74,12 @@ spec:
       input:
         contents: ${{parameters.contents}}
         filename: ${{parameters.filename}}
+
+    - id: download-file
+      name: Downloading file
+      action: altia:download-file
+      input:
+        path: ${{parameters.path}}
 
     - id: template
       name: Fetch Skeleton + Template
