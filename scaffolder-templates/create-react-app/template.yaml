@@ -25,26 +25,14 @@ spec:
           title: Filename
           type: string
           description: The filename of the file that will be created
-    - title: Choose a location
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
 # here's the steps that are executed in series in the scaffolder backend
   steps:
     - id: create-file-1
       name: Creating file
       action: altia:create-file-1
       input:
-        values:
-          contents: ${{parameters.contents}}
-          filename: ${{parameters.filename}}
+        contents: ${{parameters.contents}}
+        filename: ${{parameters.filename}}
 
     # - id: template
     #   name: Fetch Skeleton + Template
