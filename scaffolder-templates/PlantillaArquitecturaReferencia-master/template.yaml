@@ -39,17 +39,17 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-    - title: Elige dirección GitHub
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
+    # - title: Elige dirección GitHub
+    #   required:
+    #     - repoUrl
+    #   properties:
+    #     repoUrl:
+    #       title: Repository Location
+    #       type: string
+    #       ui:field: RepoUrlPicker
+    #       ui:options:
+    #         allowedHosts:
+    #           - github.com
 
   steps:
     - id: template
@@ -64,24 +64,30 @@ spec:
           component_id: ${{ parameters.component_id }}
           artifact_id: ${{ parameters.artifact_id }}
           owner: ${{ parameters.owner }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}
-          http_port: 8080
+#          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+#          http_port: 8080
 
-    - id: publish
-      name: Publish
-      action: publish:github
+    - id: download-file
+      name: Downloading file
+      action: altia:download-file
       input:
-        allowedHosts: ["github.com"]
-        description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
+        path: "C:\Users\tahir.farooq\Downloads\ArqRef"
 
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: "/catalog-info.yaml"
+  #   - id: publish
+  #     name: Publish
+  #     action: publish:github
+  #     input:
+  #       allowedHosts: ["github.com"]
+  #       description: This is ${{ parameters.component_id }}
+  #       repoUrl: ${{ parameters.repoUrl }}
 
-  output:
-    remoteUrl: ${{ steps.publish.output.remoteUrl }}
-    entityRef: ${{ steps.register.output.entityRef }}
+  #   - id: register
+  #     name: Register
+  #     action: catalog:register
+  #     input:
+  #       repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+  #       catalogInfoPath: "/catalog-info.yaml"
+
+  # output:
+  #   remoteUrl: ${{ steps.publish.output.remoteUrl }}
+  #   entityRef: ${{ steps.register.output.entityRef }}
