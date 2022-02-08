@@ -71,7 +71,7 @@ spec:
       name: Downloading file
       action: altia:download-file
       input:
-        path: "C:\Users\tahir.farooq\Downloads\ArqRef"
+        path: `C:\Users\tahir.farooq\Downloads\ArqRef´
 
   #   - id: publish
   #     name: Publish
