@@ -62,10 +62,8 @@ spec:
           description: ${{ parameters.description }}
           owner: ${{ parameters.owner }}
 
-    - title: Choose a path
-      required:
-        - path
-      properties:
-        path:
-          title: Path Location
-          type: string
+    - id: download-file
+      name: Zipping file
+      action: altia:download-file
+      input:
+        path: ${{parameters.path}}
