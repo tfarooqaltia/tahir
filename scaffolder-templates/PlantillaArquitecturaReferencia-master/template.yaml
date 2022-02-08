@@ -18,6 +18,7 @@ spec:
         - artifact_id
         - description
         - owner
+        - name
       properties:
         component_id:
           title: Project ID
@@ -39,6 +40,11 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+        name:
+          title: Name
+          type: string
+          description: Name the file
+
     # - title: Elige dirección GitHub
     #   required:
     #     - repoUrl
@@ -71,7 +77,7 @@ spec:
       name: Downloading file
       action: altia:download-file
       input:
-        path: '/home/node/ArqRef'
+        path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
   #   - id: publish
