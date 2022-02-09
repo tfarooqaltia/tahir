@@ -8,7 +8,7 @@ metadata:
     - recommended
     - java
 spec:
-  owner: AbderrahmaneGuermat
+  owner: Equipo Hunters
   type: service
 
   parameters:
@@ -74,7 +74,7 @@ spec:
 #          http_port: 8080
 
     - id: download-file
-      name: Downloading file
+      name: Zipping file
       action: altia:download-file
       input:
         path: "${{ parameters.name }}"
@@ -95,6 +95,9 @@ spec:
   #     input:
   #       repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
   #       catalogInfoPath: "/catalog-info.yaml"
+
+  output:
+     remoteUrl: ${{ steps.download-file.output.remoteUrl }}
 
   # output:
   #   remoteUrl: ${{ steps.publish.output.remoteUrl }}

@@ -40,12 +40,12 @@ spec:
             allowedKinds:
               - Group
 
-    - title: Choose a path
+    - title: Pick a name
       required:
-        - path
+        - name
       properties:
-        path:
-          title: Path Location
+        name:
+          title: Name the file
           type: string
 
   # This template is meant to be used on top of an existing template.
@@ -66,4 +66,8 @@ spec:
       name: Zipping file
       action: altia:download-file
       input:
-        path: ${{parameters.path}}
+        path: ${{ parameters.name }}
+
+  output:
+     remoteUrl: ${{ steps.download-file.output.remoteUrl }}
+  #   entityRef: ${{ steps.register.output.entityRef }}
