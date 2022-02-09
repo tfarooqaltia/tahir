@@ -42,9 +42,9 @@ spec:
 
     - title: Pick a name
       required:
-        - name
+        - filename
       properties:
-        name:
+        filename:
           title: Name the file
           type: string
 
@@ -66,9 +66,9 @@ spec:
       name: Zipping file
       action: altia:download-file
       input:
-        path: ${{ parameters.name }}
+        path: ${{ parameters.filename }}
 
   output:
-     remoteUrl: ${{ steps.download-file.output.remoteUrl }}
+     remoteUrl: ${{ steps.download-filse.output.remoteUrl }}
      #remoteUrl: "http://localhost:7007/static/hihi"
   #   entityRef: ${{ steps.register.output.entityRef }}
