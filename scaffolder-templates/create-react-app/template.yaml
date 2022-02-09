@@ -53,6 +53,18 @@ spec:
           title: Name
           type: string
 
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
 # here's the steps that are executed in series in the scaffolder backend
   steps:
     # - id: create-file-1
@@ -81,13 +93,13 @@ spec:
       input:
         path: ${{parameters.path}}
 
-    # - id: publish
-    #   name: Publish
-    #   action: publish:github
-    #   input:
-    #     allowedHosts: ["github.com"]
-    #     description: This is ${{ parameters.component_id }}
-    #     repoUrl: ${{ parameters.repoUrl }}
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ["github.com"]
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
 
     # - id: register
     #   name: Register
