@@ -69,5 +69,6 @@ spec:
         path: ${{ parameters.name }}
 
   output:
-     remoteUrl: "http://localhost:7007/static/\+'hola'"
+     remoteUrl: ${{ steps.download-file.output.remoteUrl }}
+     #remoteUrl: "http://localhost:7007/static/hihi"
   #   entityRef: ${{ steps.register.output.entityRef }}
