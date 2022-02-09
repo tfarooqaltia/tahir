@@ -47,17 +47,18 @@ spec:
         path:
           title: Name
           type: string
-    # - title: Elige dirección GitHub
-    #   required:
-    #     - repoUrl
-    #   properties:
-    #     repoUrl:
-    #       title: Repository Location
-    #       type: string
-    #       ui:field: RepoUrlPicker
-    #       ui:options:
-    #         allowedHosts:
-    #           - github.com
+
+    - title: Elige dirección GitHub
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
 
   steps:
     - id: template
@@ -82,6 +83,14 @@ spec:
         path: ${{parameters.path}}
         #path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
+
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ["github.com"]
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
 
   output:
     remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
