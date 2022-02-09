@@ -77,7 +77,8 @@ spec:
       name: Downloading file
       action: altia:download-file
       input:
-        path: "/home/node/${{ parameters.name }}"
+        path: "${{ parameters.name }}"
+        #path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
   #   - id: publish
