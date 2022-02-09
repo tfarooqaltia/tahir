@@ -98,6 +98,7 @@ spec:
 
   output:
     remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
+    text: Download files.
 
     # - id: template
     #   name: Fetch Skeleton + Template
