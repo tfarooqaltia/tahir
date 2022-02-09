@@ -84,7 +84,7 @@ spec:
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
   output:
-    remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
+    DownloadProjectUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
   #   remoteUrl: ${{ steps.publish.output.remoteUrl }}
   #   entityRef: ${{ steps.register.output.entityRef }}
