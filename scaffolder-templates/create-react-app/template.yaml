@@ -112,6 +112,8 @@ spec:
   output:
     remoteUrl: ${{ steps.publish.output.remoteUrl }}
     entityRef: ${{ steps.register.output.entityRef }}
+    remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
+
     # - id: template
     #   name: Fetch Skeleton + Template
     #   action: fetch:template
