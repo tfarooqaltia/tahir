@@ -39,17 +39,13 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-    - title: Choose a location
+    - title: Project name
       required:
-        - repoUrl
+        - path
       properties:
-        repoUrl:
-          title: Repository Location
+        path:
+          title: Name
           type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
 
   steps:
     - id: template
@@ -65,24 +61,13 @@ spec:
           artifact_id: ${{ parameters.component_id }}
           java_package_name: ${{ parameters.java_package_name }}
           owner: ${{ parameters.owner }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}
           http_port: 8080
 
-    - id: publish
-      name: Publish
-      action: publish:github
+    - id: download-file
+      name: Zipping project
+      action: altia:download-file
       input:
-        allowedHosts: ["github.com"]
-        description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
-
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: "/catalog-info.yaml"
+        path: ${{parameters.path}}
 
   output:
-    remoteUrl: ${{ steps.publish.output.remoteUrl }}
-    entityRef: ${{ steps.register.output.entityRef }}
+    remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"

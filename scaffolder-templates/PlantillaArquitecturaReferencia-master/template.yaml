@@ -18,7 +18,6 @@ spec:
         - artifact_id
         - description
         - owner
-        - path
       properties:
         component_id:
           title: Project ID
@@ -40,11 +39,14 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-        path:
-          title: Filename
-          type: string
-          description: Filename.
 
+    - title: Project name
+      required:
+        - path
+      properties:
+        path:
+          title: Name
+          type: string
     # - title: Elige dirección GitHub
     #   required:
     #     - repoUrl
@@ -74,15 +76,15 @@ spec:
 #          http_port: 8080
 
     - id: download-file
-      path: Zipping file
+      name: Zipping project
       action: altia:download-file
       input:
-        path: "${{ parameters.path }}"
+        path: ${{parameters.path}}
         #path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
   output:
-      remoteUrl: ${{ steps.download-file.output.remoteUrl }}
+    remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
   #   remoteUrl: ${{ steps.publish.output.remoteUrl }}
   #   entityRef: ${{ steps.register.output.entityRef }}
