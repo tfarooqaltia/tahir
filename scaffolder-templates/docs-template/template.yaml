@@ -69,6 +69,6 @@ spec:
         path: ${{ parameters.filename }}
 
   output:
-     remoteUrl: ${{ steps.download-filse.output.remoteUrl }}
-     #remoteUrl: "http://localhost:7007/static/hihi"
+     #remoteUrl: ${{ steps.download-filse.output.remoteUrl }}
+     remoteUrl: "http://localhost:7007/static/${{parameters.filename}}.zip"
   #   entityRef: ${{ steps.register.output.entityRef }}
