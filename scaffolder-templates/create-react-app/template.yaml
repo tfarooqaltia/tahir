@@ -45,12 +45,12 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-    - title: Choose a path
+    - title: Project name
       required:
         - path
       properties:
         path:
-          title: Path Location
+          title: Name
           type: string
 
 # here's the steps that are executed in series in the scaffolder backend
