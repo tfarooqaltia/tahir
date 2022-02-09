@@ -14,19 +14,19 @@ spec:
   parameters:
     - title: Provide some simple information
       required:
-        - contents
-        - filename
+        # - contents
+        # - filename
         - component_id
         - owner
       properties:
-        contents:
-          title: Contents
-          type: string
-          description: The contents of the file
-        filename:
-          title: Filename
-          type: string
-          description: The filename of the file that will be created
+        # contents:
+        #   title: Contents
+        #   type: string
+        #   description: The contents of the file
+        # filename:
+        #   title: Filename
+        #   type: string
+        #   description: The filename of the file that will be created
         component_id:
           title: Name
           type: string
@@ -45,18 +45,6 @@ spec:
           ui:options:
             allowedKinds:
               - Group
-    # - title: Choose a location
-    #   required:
-    #     - repoUrl
-    #   properties:
-    #     repoUrl:
-    #       title: Repository Location
-    #       type: string
-    #       ui:field: RepoUrlPicker
-    #       ui:options:
-    #         allowedHosts:
-    #           - github.com
-
     - title: Choose a path
       required:
         - path
@@ -67,13 +55,12 @@ spec:
 
 # here's the steps that are executed in series in the scaffolder backend
   steps:
-
-    - id: create-file-1
-      name: Creating file
-      action: altia:create-file-1
-      input:
-        contents: ${{parameters.contents}}
-        filename: ${{parameters.filename}}
+    # - id: create-file-1
+    #   name: Creating file
+    #   action: altia:create-file-1
+    #   input:
+    #     contents: ${{parameters.contents}}
+    #     filename: ${{parameters.filename}}
 
     - id: template
       name: Fetch Skeleton + Template
@@ -89,7 +76,7 @@ spec:
           owner: ${{ parameters.owner }}
 
     - id: download-file
-      name: Downloading file
+      name: Zipping project
       action: altia:download-file
       input:
         path: ${{parameters.path}}
