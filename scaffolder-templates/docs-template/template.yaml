@@ -69,4 +69,4 @@ spec:
         path: ${{ parameters.name }}
 
   output:
-      remoteUrl: 'http://localhost:7007/static/'+${{ parameters.name }}+'.zip'
+    remoteUrl: 'http://localhost:7007/static/'+${{ parameters.name }}+'.zip'
