@@ -112,7 +112,8 @@ spec:
   output:
     # remoteUrl: ${{ steps.publish.output.remoteUrl }}
     # entityRef: ${{ steps.register.output.entityRef }}
-    downloadUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
+    downloadUrl: ${{ steps.download-file.output.downloadUrl }}
+    #downloadUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
 
     # - id: template
     #   name: Fetch Skeleton + Template
