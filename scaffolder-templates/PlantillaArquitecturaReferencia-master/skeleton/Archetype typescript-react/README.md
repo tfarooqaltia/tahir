@@ -4,12 +4,15 @@
 
 
 # This is a project that authenticates against Keycloak.
-# For this to function, you need to deploy a Keycloak server. You can deploy from the reference architecture project. 
+# For this to function, you need to deploy a Keycloak server. You can deploy from this reference architecture project.
+# Go to ../bootstrap/docker and run the command: # docker-compose up -d postgres keycloak
 
 
 # First you need to configure Keycloak Server. If you have already configured, you only need to put clientId, realm in "/src/shared/constant.ts". Otherwise: 
 
-# Go to http://localhost:8095 
+# Go to http://localhost:8095 and enter with these credentials: 
+	@usename: admin
+	@pwd: hunters3
 
 
 # Configure a REALM, CLIENT and USER.
@@ -29,11 +32,11 @@
  # With this creedentials you will be able to log in into this application.
 
 
-# Fist install all the dependencies with
+# Back to the project, now install all the dependencies from the packages.json
  
  # npm install
 
-# Now you can run the tests:
+# You can run the tests with the following command:
 
  # npm run test 
 
@@ -50,8 +53,6 @@
 
 # In this archetype, the basic dependencies necessary for project implementation have been installed. Thus, it provides authentication against Keycloak. To use it in the components, contexts must be used, there are some examples at demo/components.
 
-# Some of the installed utilities are: keycloak (authentication ), axios (http client), configured redux (global state), dayjs (dates): https://github.com/iamkun/dayjs/ and latest version of react, typescript, react-scripts, configured service workers.
+# Some of the installed utilities are: keycloak ( authentication ), axios ( http client ), configured redux ( global state ), dayjs ( library for dates ): https://github.com/iamkun/dayjs/ and latest version of react, typescript, react-scripts. Also includes configuration of service workers.
 
 # Respect the folder structure.
-
-
