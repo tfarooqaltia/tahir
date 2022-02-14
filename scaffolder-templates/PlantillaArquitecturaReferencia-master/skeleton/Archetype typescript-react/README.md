@@ -29,11 +29,15 @@
  # With this creedentials you will be able to log in into this application.
 
 
-# You can run the tests:
+# Fist install all the dependencies with
+ 
+ # npm install
+
+# Now you can run the tests:
 
  # npm run test 
 
-# Now you are prepared to run the project:
+# Or run the project:
 
  # npm run start
 
