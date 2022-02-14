@@ -1,0 +1,3 @@
+// menus
+
+export default {}
