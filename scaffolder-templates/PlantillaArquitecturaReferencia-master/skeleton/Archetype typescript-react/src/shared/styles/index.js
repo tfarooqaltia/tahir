@@ -1,3 +1,3 @@
-// styles
+//here go styles
 
 export default {}

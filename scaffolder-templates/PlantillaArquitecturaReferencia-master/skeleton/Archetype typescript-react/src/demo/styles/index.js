@@ -1,2 +1,2 @@
-//here go footer
+//here go styles
 export default {}

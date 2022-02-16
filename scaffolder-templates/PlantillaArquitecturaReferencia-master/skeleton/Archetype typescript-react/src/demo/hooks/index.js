@@ -1,2 +1,2 @@
-//here go footer
+//here go hooks
 export default {}

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import App from './shared/components/App/App'
 import { Provider } from 'react-redux';
-import store from "./shared/reducers/config/store";
+import store from "./store";
 import { KeycloackContextProvider } from "./shared/contexts/Keycloak/KeycloakContext";
 import { environment1 } from './shared/constants';
 
