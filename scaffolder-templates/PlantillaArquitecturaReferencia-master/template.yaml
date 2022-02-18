@@ -76,9 +76,9 @@ spec:
 #          destination: ${{ parameters.repoUrl | parseRepoUrl }}
 #          http_port: 8080
 
-    - id: download-file
-      name: Zipping project
-      action: altia:download-file
+    - id: downloadfile
+      name: downloadfile
+      action: altia:downloadfile
       input:
         path: ${{parameters.path}}
         #path: "/home/node/${{ parameters.name }}"
@@ -93,7 +93,7 @@ spec:
         repoUrl: ${{ parameters.repoUrl }}
 
   output:
-    remoteUrl: ${{ steps."download-file".output.remoteUrl }}
+    remoteUrl: ${{ steps.downloadfile.output.remoteUrl }}
 
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
