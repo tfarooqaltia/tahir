@@ -93,7 +93,9 @@ spec:
         repoUrl: ${{ parameters.repoUrl }}
 
   output:
-    remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
+    remoteUrl: "steps.download-file.output.remoteUrl"
+
+    # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
   #   remoteUrl: ${{ steps.publish.output.remoteUrl }}
   #   entityRef: ${{ steps.register.output.entityRef }}
