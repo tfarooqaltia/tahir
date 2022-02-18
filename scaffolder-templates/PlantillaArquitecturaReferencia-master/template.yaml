@@ -77,7 +77,7 @@ spec:
 #          http_port: 8080
 
     - id: downloadfile
-      name: downloadfile
+      name: Zipping project
       action: altia:downloadfile
       input:
         path: ${{parameters.path}}
