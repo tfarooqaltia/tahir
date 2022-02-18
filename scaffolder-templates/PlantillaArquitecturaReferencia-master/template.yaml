@@ -93,7 +93,7 @@ spec:
         repoUrl: ${{ parameters.repoUrl }}
 
   output:
-    remoteUrl: ${{ steps.download-file.output.remoteUrl }}
+    remoteUrl: ${{ steps."download-file".output.remoteUrl }}
 
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
