@@ -1,3 +1,0 @@
-// auth
-
-export default {}
