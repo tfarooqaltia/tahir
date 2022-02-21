@@ -84,13 +84,13 @@ spec:
         #path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
-    - id: publish
-      name: Publish
-      action: publish:github
-      input:
-        allowedHosts: ["github.com"]
-        description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
+    # - id: publish
+    #   name: Publish
+    #   action: publish:github
+    #   input:
+    #     allowedHosts: ["github.com"]
+    #     description: This is ${{ parameters.component_id }}
+    #     repoUrl: ${{ parameters.repoUrl }}
 
   output:
     remoteUrl: ${{ steps.downloadfile.output.remoteUrl }}
