@@ -84,19 +84,19 @@ spec:
         #path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
-    - id: publish
-      name: Publish
-      action: publish:github
-      input:
-        allowedHosts: ["github.com"]
-        description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
+    # - id: publish
+    #   name: Publish
+    #   action: publish:github
+    #   input:
+    #     allowedHosts: ["github.com"]
+    #     description: This is ${{ parameters.component_id }}
+    #     repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        repoContentsUrl: ${{ steps.downloadfile.output.remoteUrl }}
         catalogInfoPath: "/catalog-info.yaml"
 
   output:
@@ -104,5 +104,5 @@ spec:
 
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
-    GitHubOutput: ${{ steps.publish.output.remoteUrl }}
+    # GitHubOutput: ${{ steps.publish.output.remoteUrl }}
     entityRef: ${{ steps.register.output.entityRef }}
