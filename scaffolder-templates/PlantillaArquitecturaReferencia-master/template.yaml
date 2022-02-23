@@ -48,17 +48,17 @@ spec:
           title: Name
           type: string
 
-    # - title: Elige dirección GitHub
-    #   required:
-    #     - repoUrl
-    #   properties:
-    #     repoUrl:
-    #       title: Repository Location
-    #       type: string
-    #       ui:field: RepoUrlPicker
-    #       ui:options:
-    #         allowedHosts:
-    #           - github.com
+    - title: Elige dirección GitHub
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
 
   steps:
     - id: template
