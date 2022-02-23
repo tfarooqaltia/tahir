@@ -84,18 +84,18 @@ spec:
         #path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
-    # - id: publish
-    #   name: Publish
-    #   action: publish:github
-    #   input:
-    #     allowedHosts: ["github.com"]
-    #     description: This is ${{ parameters.component_id }}
-    #     repoUrl: ${{ parameters.repoUrl }}
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ["github.com"]
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
     - id: registering
       name: Registering component
       action: altia:registering
       input:
-        repoContentsUrl: ${{ steps.downloadfile.output.remoteUrl }}
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: "/catalog-info.yaml"
 
     # - id: register
