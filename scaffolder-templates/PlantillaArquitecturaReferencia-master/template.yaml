@@ -84,13 +84,13 @@ spec:
         #path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
-    # - id: publish
-    #   name: Publish
-    #   action: publish:github
-    #   input:
-    #     allowedHosts: ["github.com"]
-    #     description: This is ${{ parameters.component_id }}
-    #     repoUrl: ${{ parameters.repoUrl }}
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ["github.com"]
+        description: This is ${{ parameters.component_id }}
+        repoUrl: ${{ parameters.repoUrl }}
 
     - id: register
       name: Register
@@ -104,5 +104,5 @@ spec:
 
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
-  #   remoteUrl: ${{ steps.publish.output.remoteUrl }}
+    remoteUrl: ${{ steps.publish.output.remoteUrl }}
     entityRef: ${{ steps.register.output.entityRef }}
