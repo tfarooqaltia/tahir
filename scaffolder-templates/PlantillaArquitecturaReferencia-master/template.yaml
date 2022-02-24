@@ -114,4 +114,4 @@ spec:
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
     # GitHubOutput: ${{ steps.publish.output.remoteUrl }}
-    entityRef: ${{ steps.registering.output.entityRef }}
+    # entityRef: ${{ steps.registering.output.entityRef }}
