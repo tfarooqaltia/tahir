@@ -109,8 +109,8 @@ spec:
 
   output:
     remoteUrl: ${{ steps.downloadfile.output.remoteUrl }}
-    entityRef: ${{ steps.register.output.entityRef }}
-    catalogInfoUrl: ${{ steps.register.output.catalogInfoUrl }}
+    entityRef: ${{ steps.registering.output.entityRef }}
+    catalogInfoUrl: ${{ steps.registering.output.catalogInfoUrl }}
 
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
