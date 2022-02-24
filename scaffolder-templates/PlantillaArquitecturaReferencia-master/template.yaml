@@ -48,17 +48,17 @@ spec:
           title: Name
           type: string
 
-    - title: Elige dirección GitHub
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
+    # - title: Elige dirección GitHub
+    #   required:
+    #     - repoUrl
+    #   properties:
+    #     repoUrl:
+    #       title: Repository Location
+    #       type: string
+    #       ui:field: RepoUrlPicker
+    #       ui:options:
+    #         allowedHosts:
+    #           - github.com
 
   steps:
     - id: template
@@ -84,19 +84,19 @@ spec:
         #path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
-    - id: publish
-      name: Publish
-      action: publish:github
-      input:
-        allowedHosts: ["github.com"]
-        description: This is ${{ parameters.component_id }}
-        repoUrl: ${{ parameters.repoUrl }}
+    # - id: publish
+    #   name: Publish
+    #   action: publish:github
+    #   input:
+    #     allowedHosts: ["github.com"]
+    #     description: This is ${{ parameters.component_id }}
+    #     repoUrl: ${{ parameters.repoUrl }}
 
     - id: registering
       name: Registering component
       action: altia:registering
       input:
-        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        repoContentsUrl: ${{ steps.downloadfile.output.remoteUrl }}
         catalogInfoPath: "/catalog-info.yaml"
         optional: true
 
@@ -110,7 +110,6 @@ spec:
   output:
     remoteUrl: ${{ steps.downloadfile.output.remoteUrl }}
     entityRef: ${{ steps.registering.output.entityRef }}
-    catalogInfoUrl: ${{ steps.registering.output.catalogInfoUrl }}
 
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
