@@ -91,12 +91,12 @@ spec:
     #     allowedHosts: ["github.com"]
     #     description: This is ${{ parameters.component_id }}
     #     repoUrl: ${{ parameters.repoUrl }}
-    - id: registering
-      name: Registering component
-      action: altia:registering
-      input:
-        repoContentsUrl: ${{ steps.downloadfile.output.repoContentsUrl }}
-        catalogInfoPath: "/catalog-info.yaml"
+    # - id: registering
+    #   name: Registering component
+    #   action: altia:registering
+    #   input:
+    #     repoContentsUrl: ${{ steps.downloadfile.output.repoContentsUrl }}
+    #     catalogInfoPath: "/catalog-info.yaml"
 
     # - id: register
     #   name: Register
