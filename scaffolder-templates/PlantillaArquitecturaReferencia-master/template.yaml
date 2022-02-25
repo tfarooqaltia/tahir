@@ -103,7 +103,8 @@ spec:
       name: Registering component
       action: altia:registering
       input:
-        catalogInfoUrl: "${{parameters.path}}/catalog-info.yaml"
+        repoContentsUrl: "http://localhost:3000/${{parameters.path}}"
+        catalogInfoPath: "/catalog-info.yaml"
         optional: true
 
     # - id: register
