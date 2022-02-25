@@ -96,7 +96,7 @@ spec:
       name: Registering component
       action: altia:registering
       input:
-        catalogInfoUrl: "{parameters.path}/catalog-info.yaml"
+        catalogInfoUrl: "${{parameters.path}}/catalog-info.yaml"
         optional: true
 
     # - id: register
