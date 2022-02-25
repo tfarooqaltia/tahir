@@ -76,6 +76,13 @@ spec:
 #          destination: ${{ parameters.repoUrl | parseRepoUrl }}
 #          http_port: 8080
 
+    - id: file
+      name: Downloading project
+      action: publish:file
+      input:
+        path: ${{parameters.path}}
+
+
     - id: downloadfile
       name: Zipping project
       action: altia:downloadfile
