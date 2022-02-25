@@ -92,13 +92,13 @@ spec:
     #     description: This is ${{ parameters.component_id }}
     #     repoUrl: ${{ parameters.repoUrl }}
 
-    - id: registering
-      name: Registering component
-      action: altia:registering
-      input:
-        repoContentsUrl: ${{ steps.downloadfile.output.remoteUrl }}
-        catalogInfoPath: "/catalog-info.yaml"
-        optional: true
+    # - id: registering
+    #   name: Registering component
+    #   action: altia:registering
+    #   input:
+    #     repoContentsUrl: ${{ steps.downloadfile.output.remoteUrl }}
+    #     catalogInfoPath: "/catalog-info.yaml"
+    #     optional: true
 
     # - id: register
     #   name: Register
