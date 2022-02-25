@@ -96,8 +96,7 @@ spec:
       name: Registering component
       action: altia:registering
       input:
-        repoContentsUrl: ${{ steps.downloadfile.output.repoContentsUrl }}
-        catalogInfoPath: "/catalog-info.yaml"
+        catalogInfoUrl: "{parameters.path}/catalog-info.yaml"
         optional: true
 
     # - id: register
