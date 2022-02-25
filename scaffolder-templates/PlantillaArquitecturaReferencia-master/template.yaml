@@ -76,18 +76,18 @@ spec:
 #          destination: ${{ parameters.repoUrl | parseRepoUrl }}
 #          http_port: 8080
 
-    - id: file
-      name: Downloading project
-      action: publish:file
-      input:
-        path: ${{parameters.path}}
-
-
-    # - id: downloadfile
-    #   name: Zipping project
-    #   action: altia:downloadfile
+    # - id: file
+    #   name: Downloading project
+    #   action: publish:file
     #   input:
     #     path: ${{parameters.path}}
+
+
+    - id: downloadfile
+      name: Zipping project
+      action: altia:downloadfile
+      input:
+        path: ${{parameters.path}}
         #path: "/home/node/${{ parameters.name }}"
         #path: 'C:\Users\tahir.farooq\Downloads\ArqRef'
 
@@ -103,9 +103,17 @@ spec:
       name: Registering component
       action: altia:registering
       input:
-        repoContentsUrl: "http://localhost:3000/${{parameters.path}}"
+        repoContentsUrl: ${{ steps.downloadfile.output.repoContentsUrl }}
         catalogInfoPath: "/catalog-info.yaml"
         optional: true
+
+    # - id: registering
+    #   name: Registering component
+    #   action: altia:registering
+    #   input:
+    #     repoContentsUrl: "http://localhost:3000/${{parameters.path}}"
+    #     catalogInfoPath: "/catalog-info.yaml"
+    #     optional: true
 
     # - id: register
     #   name: Register
@@ -115,7 +123,7 @@ spec:
     #     catalogInfoPath: "/catalog-info.yaml"
 
   output:
-    remoteUrl: "${{ steps.file.output.remoteUrl }}/catalog-info.yaml"
+    remoteUrl: ${{ steps.downloadfile.output.remoteUrl }}
     entityRef: ${{ steps.registering.output.entityRef }}
 
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
