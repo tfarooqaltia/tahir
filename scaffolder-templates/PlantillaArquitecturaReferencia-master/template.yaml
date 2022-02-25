@@ -115,7 +115,7 @@ spec:
     #     catalogInfoPath: "/catalog-info.yaml"
 
   output:
-    remoteUrl: ${{ steps.downloadfile.output.remoteUrl }}
+    remoteUrl: "${{ steps.file.output.remoteUrl }}/catalog-info.yaml"
     entityRef: ${{ steps.registering.output.entityRef }}
 
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
