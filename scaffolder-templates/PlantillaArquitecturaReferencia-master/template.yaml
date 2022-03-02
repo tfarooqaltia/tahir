@@ -48,7 +48,7 @@ spec:
           title: Name
           type: string
 
-    # - title: Elige dirección GitHub
+    - title: Elige dirección GitHub
       required:
         - repoUrl
       properties:
