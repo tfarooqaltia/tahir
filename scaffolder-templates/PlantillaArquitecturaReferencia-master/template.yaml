@@ -99,13 +99,13 @@ spec:
     #     description: This is ${{ parameters.component_id }}
     #     repoUrl: ${{ parameters.repoUrl }}
 
-    # - id: registering
-    #   name: Registering component
-    #   action: altia:registering
-    #   input:
-    #     repoContentsUrl: ${{ steps.downloadfile.output.repoContentsUrl }}
-    #     catalogInfoPath: "/catalog-info.yaml"
-    #     optional: true
+    - id: registering
+      name: Registering component
+      action: altia:registering
+      input:
+        repoContentsUrl: ${{ steps.downloadfile.output.repoContentsUrl }}
+        catalogInfoPath: "/catalog-info.yaml"
+        optional: true
 
     # - id: registering
     #   name: Registering component
@@ -124,7 +124,7 @@ spec:
 
   output:
     remoteUrl: ${{ steps.downloadfile.output.remoteUrl }}
-    # entityRef: ${{ steps.registering.output.entityRef }}
+    entityRef: ${{ steps.registering.output.entityRef }}
 
     # remoteUrl: "http://localhost:7007/static/${{parameters.path}}.zip"
   # output:
