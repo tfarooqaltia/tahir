@@ -10,7 +10,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${{values.component_id}}s.utilities</groupId>
+  <groupId>${{values.component_id}}.utilities</groupId>
   <artifactId>common-utilities</artifactId>
   <version>${common-utilities.version}</version>
 
