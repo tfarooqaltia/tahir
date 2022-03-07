@@ -46,7 +46,7 @@
 
  #### When you run this project, the first page you will see is the authentication page. (Remember to log in with your User credentials created before).
  #### After successful authentication , you can navigate into different sections.
- #### You can see the state of the store with "Redux - devtools plugin" (available in Chrome web store). Download here: ( https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=es ). 
+ #### You can see the state of the store with "Redux - devtools plugin" (available in Chrome web store). Download here: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=es 
  #### Once installed, go to the developer tools section in Chrome and find the Redux tab. Now you will see the changes in the status of your application with this plugin (e.g. update the date in the Altia private section) 
 
 
