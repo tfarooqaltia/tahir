@@ -8,7 +8,7 @@
 # Go to ../bootstrap/docker and run the command: # docker-compose up -d postgres keycloak
 
 
-# First you need to configure Keycloak Server. If you have already configured, you only need to put clientId, realm in "/src/shared/constant.ts". Otherwise: 
+# First you need to configure Keycloak Server. If you have already configured, you only need to put clientId and realm inside "/src/shared/constant.ts". Otherwise: 
 
 # Go to http://localhost:8095 and enter with these credentials: 
 	@usename: admin
@@ -54,5 +54,9 @@
 # In this archetype, the basic dependencies necessary for project implementation have been installed. Thus, it provides authentication against Keycloak. To use it in the components, contexts must be used, there are some examples at demo/components.
 
 # Some of the installed utilities are: keycloak ( authentication ), axios ( http client ), configured redux ( global state ), dayjs ( library for dates ): https://github.com/iamkun/dayjs/ and latest version of react, typescript, react-scripts. Also includes configuration of service workers.
+
+# To find accessibility issues it is recommended to use the eslint-plugin-jsx-a11y library, a guide can be found at this website: https://www.npmjs.com/package/eslint-plugin-jsx-a11y.
+# In addition, it can be combined with the Wave browser extension. To install, visit this website: https://wave.webaim.org/extension/
+
 
 # Respect the folder structure.
