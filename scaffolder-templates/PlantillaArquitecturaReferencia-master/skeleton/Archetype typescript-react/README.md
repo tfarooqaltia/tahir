@@ -34,15 +34,15 @@
 
 #### Back to the project, now install all the dependencies from the packages.json
  
- #### npm install
+ npm install
 
 #### You can run the tests with the following command:
 
- #### npm run test 
+ npm run test 
 
 #### Or run the project:
 
- #### npm run start
+ npm run start
 
  #### When you run this project, the first page you will see is the authentication page. (Remember to log in with your User credentials created before).
  #### After successful authentication , you can navigate into different sections.
