@@ -3,7 +3,6 @@
 Este es el proyecto base de la Arquitectura de Referencia de Altia.
 
 
-
 ## Añadir mas microservicios
 1. Hay que añadir modulo maven
 2. Al pom del modulo hay que hacer que herede de: 
@@ -17,4 +16,4 @@ Este es el proyecto base de la Arquitectura de Referencia de Altia.
 ##Ejecutar el proyecto
 1. Para empezar echa un vistazo a la carpeta **bootstrap** ;)
 2. ejecuta ```mvn clean install``` a nivel raiz
-3. levanta los micros  
+3. levanta los micros
