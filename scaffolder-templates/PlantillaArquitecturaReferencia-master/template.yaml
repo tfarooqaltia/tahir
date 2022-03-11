@@ -18,6 +18,7 @@ spec:
         - artifact_id
         - description
         - owner
+        - group_id
       properties:
         component_id:
           title: Project ID
@@ -27,6 +28,10 @@ spec:
           title: Artifact ID
           type: string
           description: Identificador del artefacto del proyecto ej. (MiProyecto)
+        group_id:
+          title: Group ID
+          type: string
+          description: Identificador del grupo del proyecto ej. (MiProyecto)
         description:
           title: Description
           type: string
